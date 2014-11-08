@@ -2,10 +2,13 @@
 
 原型见./client.png
 
-Linux
+Linux：
+
     ./iclient-linux/README.md
 
-Windows可无视（无GUI）
+Windows（无GUI）：
+
+    [可无视]
 
 -----
 
