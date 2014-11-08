@@ -6,6 +6,10 @@ Linux：
 
     ./iclient-linux/README.md
 
+Mac :
+    
+    ./iclient-mac/README.md    
+
 Windows（无GUI）：
 
     [可无视]
