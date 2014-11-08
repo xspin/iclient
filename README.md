@@ -8,4 +8,7 @@ Linux
 Windows可无视（无GUI）
 
 -----
+
+https://github.com/xspin/iclient
+
 xsping<code@e-spin.org>
