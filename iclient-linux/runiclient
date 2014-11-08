@@ -1,0 +1,35 @@
+#!/bin/bash
+#用户名
+USERNAME=''
+
+#密码
+PASSWORD=''
+
+#其他参数(如--dev指定网卡，-b后台运行, 可运行iclient -h查看详细参数)
+ARGS=(--dev eth0)
+
+#---------------------------------------------------------------------
+LOGFILE=/tmp/iclient.log
+
+echo Beginning Authentication...
+
+iclient ${ARGS[@]} -u $USERNAME -p $PASSWORD $@
+
+program_err=`sed -n -e '/^@@ERROR/p' $LOGFILE`
+server_info=`sed -n -e '/^>>Server/p' $LOGFILE`
+
+notify(){
+    notify-send "神州数码" "$1";
+    if [ $? -eq 127 ]; then
+        echo "\`notify-send' not installed."
+        echo "$1"
+    fi
+}
+
+for msg in "$program_err" "$server_info"; do
+    if [[ $msg ]]; then
+        notify "${msg##>>}"
+    fi
+done
+
+

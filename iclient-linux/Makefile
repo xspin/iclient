@@ -1,0 +1,38 @@
+TARGET = iclient
+BIN_DIR = /usr/bin/
+INCLUDES = 
+LIBS = -lpcap
+
+C_SOURCES       = $(wildcard *.c)
+C_OBJS = $(patsubst %.c, %.o, $(C_SOURCES))
+
+# ------------  generate the names of the object files  ------------------------
+OBJECTS         = $(addsuffix .o,$(BASENAMES))
+
+# ------------  generate the names of the hidden prerequisite files  -----------
+PREREQUISITES   = $(addprefix .,$(addsuffix .d,$(BASENAMES)))
+
+# ------------  make the executable (the default goal)  ------------------------
+%.o:%.c
+	$(CC) -c $<$ $(CCFLAGS)
+
+$(TARGET): $(CPP_OBJS) $(C_OBJS)
+	$(CXX)$(LINKFLAGS) -o $(TARGET) $^ $(LIBS)
+
+all:$(TARGET)
+
+clean:
+	rm -f $(CPP_OBJS) $(C_OBJS)
+	rm -f $(TARGET)
+
+update: $(TARGET)
+	cp $(TARGET) $(BIN_DIR)
+
+install: $(TARGET)
+	./install
+
+uninstall:
+	rm -f $(BIN_DIR)/$(TARGET)
+
+rebuild: clean all
+
