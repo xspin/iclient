@@ -11,6 +11,8 @@ ARGS=(--dev eth0)
 #---------------------------------------------------------------------
 LOGFILE=/tmp/iclient.log
 
+date >> LOGFILE
+
 echo Beginning Authentication...
 
 iclient ${ARGS[@]} -u $USERNAME -p $PASSWORD $@
@@ -19,7 +21,7 @@ program_err=`sed -n -e '/^@@ERROR/p' $LOGFILE`
 server_info=`sed -n -e '/^>>Server/p' $LOGFILE`
 
 notify(){
-    notify-send "神州数码" "$1";
+    notify-send "iclient" "$1";
     if [ $? -eq 127 ]; then
         echo "\`notify-send' not installed."
         echo "$1"

@@ -51,7 +51,7 @@ daemon_init(void)
 	if ( (pid = fork()) < 0)
 	    perror ("Fork");
 	else if (pid != 0) {
-        fprintf(stdout, "&&Info: ZDClient Forked background with PID: [%d]\n\n", pid);
+        fprintf(stdout, "&&Info: iClient Forked background with PID: [%d]\n\n", pid);
 		exit(0);
     }
 	setsid();		/* become session leader */
@@ -89,7 +89,7 @@ program_running_check()
             fprintf (stdout, "&&Info: Logoff and Sent Kill Signal to PID %d.\n", fl.l_pid);
         }
         else 
-            fprintf (stderr, "&&Info: NO ZDClient Running.\n");
+            fprintf (stderr, "&&Info: NO iClient Running.\n");
         exit (EXIT_FAILURE);
     }
 
@@ -126,7 +126,7 @@ int main(int argc, char **argv)
     //检测程序的副本运行（文件锁）
     int ins_pid;
     if ( (ins_pid = program_running_check ()) ) {
-        fprintf(stderr,"@@ERROR: ZDClient Already "
+        fprintf(stderr,"@@ERROR: iClient Already "
                             "Running with PID %d\n", ins_pid);
         exit(EXIT_FAILURE);
     }

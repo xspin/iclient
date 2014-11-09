@@ -32,8 +32,8 @@
 #include "md5.h"
 
 using namespace std;
-/* ZDClient Version */
-#define ZDC_VER "0.13"
+/* iClient Version */
+#define ZDC_VER "1.02"
 
 /* default snap length (maximum bytes per packet to capture) */
 #define SNAP_LEN 1518

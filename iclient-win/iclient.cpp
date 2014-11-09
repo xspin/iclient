@@ -579,7 +579,7 @@ void init_info()
     else{
         if (strlen (client_ver) > 13) {
             fprintf (stderr, "Error: Specified client version `%s' longer than 13 Bytes.\n"
-                    "Try `zdclient --help' for more information.\n", client_ver);
+                    "Try `iclient --help' for more information.\n", client_ver);
             exit(EXIT_FAILURE);
         }
     }
@@ -832,7 +832,7 @@ void show_local_info ()
 {
     char buf[64];
     in_addr addr_ip, addr_mask, addr_gateway, addr_dns;
-    //printf("######## ZDClient ver. %s $Revision: 93 $ #########\n", ZDC_VER);
+    //printf("######## Client ver. %s $Revision: 93 $ #########\n", ZDC_VER);
     printf("Device:     %s\n", dev_if_name);
     printf("MAC:        %02x:%02x:%02x:%02x:%02x:%02x\n",
                        local_mac[0],local_mac[1],local_mac[2],

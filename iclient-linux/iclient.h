@@ -29,7 +29,7 @@
 #include <iconv.h>
 #include "md5.h"
 
-/* ZDClient Version */
+/* iClient Version */
 #define ZDC_VER "1.00"
 
 /* default snap length (maximum bytes per packet to capture) */
