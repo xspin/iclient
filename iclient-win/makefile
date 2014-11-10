@@ -1,11 +1,12 @@
 TARGET = iclient.exe
+PATH_LIBS = /home/i/VirtualBox\ VMs/share/pgm
 BIN_DIR = 
-DDK = ../lbs/inc/ddk/
-INCLUDES = -I../lbs/inc/ #-I../lbs/inc/mfc42 -I../lbs/inc/atl21
+#DDK = $(PATH_LIBS)/lbs/inc/ddk/
+INCLUDES = -I $(PATH_LIBS)/lbs/inc/ #-I../lbs/inc/mfc42 -I../lbs/inc/atl21
 # -I../lbs/Include/ -I$(DDK)/wnet -I$(DDK)/w2k
-LIBS = ../WpdPack/Lib/wpcap.lib\
-		 	 ../lbs/lib/wnet/i386/ws2_32.lib\
-			 ../lbs/lib/wnet/i386/iphlpapi.lib
+LIBS = $(PATH_LIBS)/WpdPack/Lib/wpcap.lib\
+		 	 $(PATH_LIBS)/lbs/lib/wnet/i386/ws2_32.lib\
+			 $(PATH_LIBS)/lbs/lib/wnet/i386/iphlpapi.lib
 #LINKFLAGS =  ../lbs/lib/wnet/i386/iphlpapi.lib
 CC = i586-mingw32msvc-g++
 CCFLAGS =
@@ -37,18 +38,11 @@ $(TARGET): $(C_OBJS) $(CPP_OBJS)
 all:$(TARGET)
 
 install:
-	cp $(TARGET) ./release/iClient.exe
-	#cp client.exe ./release/Info.exe
-	#cp run.bat ./release/run.bat
+	mv $(TARGET) ./release/iClient.exe
 
 clean:
 	rm -f $(CPP_OBJS) $(C_OBJS)
 	rm -f $(TARGET)
-#install: $(TARGET)
-	#cp $(TARGET) $(BIN_DIR)
-#uninstall:
-	#rm -f $(BIN_DIR)/$(TARGET)
+
 rebuild: clean all
 
-# ==============================================================================
-# vim: set tabstop=2: set shiftwidth=2:

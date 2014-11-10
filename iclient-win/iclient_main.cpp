@@ -91,12 +91,14 @@ int main(int argc, char **argv)
         send_eap_packet(EAPOL_LOGOFF);
         pcap_breakloop (handle);
         fprintf(stdout,"\n&&Info: Logoff & Exit. \n");
+        system("pause");
         exit(1);
     }
     if (GetLastError() == ERROR_ALREADY_EXISTS)
     {
         //AfxMessageBox(_T( "应用程序不可以重复启动" ),MB_OK | MB_APPLMODAL |MB_ICONSTOP);
         fprintf(stderr, "\n@@ERROR: Client Already Running!!!\n");
+        system("pause");
         exit(EXIT_FAILURE);
     }
     //初始化并解释程序的启动参数
@@ -115,7 +117,7 @@ int main(int argc, char **argv)
     signal (SIGTERM, signal_interrupted);    
     show_local_info();
 
-    send_eap_packet (EAPOL_LOGOFF);
+    //send_eap_packet (EAPOL_LOGOFF);
     //发出第一个上线请求报文
     send_eap_packet (EAPOL_START);
 

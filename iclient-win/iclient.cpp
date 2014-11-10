@@ -23,6 +23,7 @@
  *-----------------------------------------------------------------------------*/
 #define AUTH_TIMES 100
 
+char dev_no;
 int auth_times = 0;
 char        errbuf[PCAP_ERRBUF_SIZE];  /* error buffer */
 enum STATE  state;                     /* program state */
@@ -615,8 +616,8 @@ void init_device()
     //show_alldevs(alldevs, errbuf);
     getAdapters(pIpAdapterInfo);
 
-    char dev_no = '0';
-    if(devs_len>'1')
+    //char dev_no = '0';
+    if(!dev_no and devs_len>'1')
     {
         cout<<"\n*** Please Select a Adapter (Default eth0). "<<endl;
         cout<<"*** Input the number: ";
@@ -626,10 +627,11 @@ void init_device()
 
     if(dev_no < '0' or dev_no >= devs_len)
     {
-        dev_no = '0';
-        if(dev_no != '\n' or dev_no != NULL)
+        if(dev_no != '\n' and dev_no != NULL)
             cout<<"Ivalid Input, Using Default."<<endl;
+        dev_no = '0';
     }
+    //cout<<"***"<<dev_no<<endl;
     int no = dev_no - '0';
     for(int i=0; i<no; i++)
     {
@@ -894,7 +896,7 @@ void init_arguments(int *argc, char ***argv)
                 background = 1;
                 break;
             case 2:
-                dev = optarg;
+                dev_no = optarg[0];
                 break;
             case 3:
                 client_ver = optarg;
