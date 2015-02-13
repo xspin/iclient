@@ -18,4 +18,4 @@ Windows（无GUI）：
 
 https://github.com/xspin/iclient
 
-xsping<code@e-spin.org>
+xspin:<code@e-spin.org>
