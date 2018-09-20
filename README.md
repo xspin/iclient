@@ -1,6 +1,6 @@
-##iclient for 校园网DCSM客户端
+## iclient for 校园网DCSM客户端
 
-原型见./client.png
+原型见 ./client.png
 
 Linux：
 
@@ -18,4 +18,4 @@ Windows（无GUI）：
 
 https://github.com/xspin/iclient
 
-xspin:<code@e-spin.org>
+xspin:<xnipse@gmail.com>
