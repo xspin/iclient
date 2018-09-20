@@ -4,7 +4,7 @@
     
 编译需要libpcap库，一般Linux发行版里面安装libpcap包即可，在ubuntu中，需要libpcap-dev：
 
-> sudo apt-get install libpcap-dev
+	sudo apt-get install libpcap-dev
 
 编译命令：
 
@@ -37,6 +37,7 @@ make install也可完成安装，同样有make uninstall以供卸载。再次提
 当用户使用的认证网卡不是默认的第一个网卡（如eth0）时，可使用`runiclient --dev eth1`这样的参数方式启动程序，或者修改runiclient文件内ARGS=""，加入自定义的参数。 
 
 ------
+
 https://github.com/xspin/iclient
 
-xspin<xnipse@gmail.com>
+<xnipse@gmail.com>
